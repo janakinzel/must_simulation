@@ -4,7 +4,7 @@ library(survival)
 # goal: see whether the "right" non-zero variables for each transition are found in low-dim
 
 # sim: a dataset resulting from the function simulate_IDM_lowdim (containing the transition times and the covariates with non-zero effect on any transition)
-analyze_simu <- function(sim){
+analyzeSimu <- function(sim){
   # Cox models on subsets
   covariates <- setdiff(names(sim), c("id","from","to","entry","exit"))
   formula_to1 <- as.formula(paste("Surv(entry,exit,to==1)~", paste(covariates,collapse="+")))

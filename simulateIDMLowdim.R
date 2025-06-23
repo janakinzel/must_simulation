@@ -6,7 +6,7 @@ library(simIDM)
 # bh: list of constant baseline hazard for each transition
 # betas: list with vector of coefficients for each transition
 # X_lowdim: covariates with non-zero effect on any transition, nrow=n, ncol=length of beta vectors
-simulate_IDM_lowdim <- function(n,bh,betas,X_lowdim){
+simulateIDMLowdim <- function(n,bh,betas,X_lowdim){
   transition <- list(simIDM::cox_transition(h01=bh[[1]],h02=bh[[2]],h12=bh[[3]]))
   
   times <- simIDM::getOneClinicalTrial(nPat=n,transitionByArm=transition,dropout=list(rate=0,time=1),
